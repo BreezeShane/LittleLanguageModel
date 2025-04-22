@@ -7,6 +7,7 @@ This repo is a tiny language model mimicking LLMs. I would like to create LLM-li
  - [ ] Make Tokenizer
  - [ ] Make Model Based on Transformer
  - [ ] Pretrain Model
+ - [ ] LLM Alignment
 
 # Optional
  - [ ] Transfer to downstream tasks.
