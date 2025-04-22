@@ -13,3 +13,5 @@ This repo is a tiny language model mimicking LLMs. I would like to create LLM-li
  - [ ] SFT Training
  - [ ] Distribute Data Parallel
  - [ ] Distill model
+ - [ ] RAG
+ - [ ] Agent
