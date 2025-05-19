@@ -8,7 +8,7 @@ import re
 from tqdm import tqdm
 
 RAW_DATA_DIR = path.join(getcwd(), "data_process", "raw_data")
-DATA_DIR = path.join(getcwd(), "data")
+CORPUS_DIR = path.join(getcwd(), "corpus")
 
 # def filter_char(text: str, char: str):
 #     """ Filter the specify char in text. """
@@ -35,7 +35,7 @@ def filter_chars(text: str, chars: list[str]):
 
 for file_name in tqdm(listdir(RAW_DATA_DIR)):
     cur_path = path.join(RAW_DATA_DIR, file_name)
-    dest_path = path.join(DATA_DIR, file_name)
+    dest_path = path.join(CORPUS_DIR, file_name)
     with open(cur_path, "r", encoding="utf-8") as f_r:
         raw_text = f_r.read()
         filtered_text = filter_chars(raw_text, ["\n", "\t"])
