@@ -44,7 +44,7 @@ for a_tag in tqdm(a_tags):
     name = a_tag.get("href")
     link = urljoin(TEXT_SOURCE_URL, name)
     page_source = requests.get(link, timeout=10).text
-    with open(path.join(getcwd(), "data", f"{name}.txt"), "w", encoding="utf-8") as f:
+    with open(path.join(getcwd(), "data_process", "raw_data", f"{name}.txt"), "w", encoding="utf-8") as f:
         f.write(page_source)
     __wait__([3,5])
 
