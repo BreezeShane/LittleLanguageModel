@@ -3,8 +3,9 @@ Clean data.
 """
 # pylint: disable=invalid-name
 
+import jsonlines
 from os import getcwd, path, listdir
-import re
+# import re
 from tqdm import tqdm
 
 RAW_DATA_DIR = path.join(getcwd(), "data_process", "raw_data")
@@ -35,15 +36,15 @@ def filter_chars(text: str, chars: list[str]):
 
 for file_name in tqdm(listdir(RAW_DATA_DIR)):
     cur_path = path.join(RAW_DATA_DIR, file_name)
-    dest_path = path.join(CORPUS_DIR, file_name)
+    dest_path = path.join(CORPUS_DIR, "corpus.jsonl")
     with open(cur_path, "r", encoding="utf-8") as f_r:
         raw_text = f_r.read()
         filtered_text = filter_chars(raw_text, ["\n", "\t"])
-        filtered_text = re.sub(r"(.=+.)", " ", string=filtered_text)
-        filtered_text = re.sub(r"(.--+.)", " ", string=filtered_text)
+        # filtered_text = re.sub(r"(.=+.)", " ", string=filtered_text)
+        # filtered_text = re.sub(r"(.--+.)", " ", string=filtered_text)
 
-        with open(dest_path, "w", encoding="utf-8") as f_w:
-            f_w.write(filtered_text)
+        with jsonlines.open(dest_path, "a") as f_w:
+            f_w.write({"text": filtered_text})
 
         # to_stop = input("Continue? [y] or n")
         # if to_stop == "n":
